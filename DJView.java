@@ -154,9 +154,9 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 		} else if (event.getSource() == decreaseBPMButton) {
 			controller.decreaseBPM();
 		} else if (event.getSource() == increaseTenBPMButton) {
-			controller.increaseTenBPM();
+			controller.setBPM(model.getBPM() + 10);
 		} else if (event.getSource() == decreaseTenBPMButton) {
-			controller.decreaseTenBPM();
+			controller.setBPM(model.getBPM() - 10);
 		}
     }
 

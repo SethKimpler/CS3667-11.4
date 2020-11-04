@@ -18,6 +18,8 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
     JButton setBPMButton;
     JButton increaseBPMButton;
     JButton decreaseBPMButton;
+	JButton increaseTenBPMButton;
+    JButton decreaseTenBPMButton;
     JMenuBar menuBar;
     JMenu menu;
     JMenuItem startMenuItem;
@@ -91,14 +93,21 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
         setBPMButton.setSize(new Dimension(10,40));
         increaseBPMButton = new JButton(">>");
         decreaseBPMButton = new JButton("<<");
+		increaseTenBPMButton = new JButton("+10");
+        decreaseTenBPMButton = new JButton("-10");
         setBPMButton.addActionListener(this);
         increaseBPMButton.addActionListener(this);
         decreaseBPMButton.addActionListener(this);
+		increaseTenBPMButton.addActionListener(this);
+        decreaseTenBPMButton.addActionListener(this);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 2));
 
 		buttonPanel.add(decreaseBPMButton);
 		buttonPanel.add(increaseBPMButton);
+		buttonPanel.add(decreaseTenBPMButton);
+		buttonPanel.add(increaseTenBPMButton);
+		
 
         JPanel enterPanel = new JPanel(new GridLayout(1, 2));
         enterPanel.add(bpmLabel);
@@ -139,10 +148,15 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 		if (event.getSource() == setBPMButton) {
 			int bpm = Integer.parseInt(bpmTextField.getText());
         	controller.setBPM(bpm);
+			bpmTextField.setActionCommand("");
 		} else if (event.getSource() == increaseBPMButton) {
 			controller.increaseBPM();
 		} else if (event.getSource() == decreaseBPMButton) {
 			controller.decreaseBPM();
+		} else if (event.getSource() == increaseTenBPMButton) {
+			controller.increaseTenBPM();
+		} else if (event.getSource() == decreaseTenBPMButton) {
+			controller.decreaseTenBPM();
 		}
     }
 

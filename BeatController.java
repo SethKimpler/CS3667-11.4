@@ -30,15 +30,30 @@ public class BeatController implements ControllerInterface {
         int bpm = model.getBPM();
         model.setBPM(bpm + 1);
 	}
+	
+	public void increaseTenBPM() {
+        int bpm = model.getBPM();
+        model.setBPM(bpm + 10);
+	}
     
 	public void decreaseBPM() {
         int bpm = model.getBPM();
         model.setBPM(bpm - 1);
-	if (model.getBPM() <= 0)
-	{
-		model.setBPM(0);
-		stop();
-	}
+		if (model.getBPM() <= 0)
+		{
+			model.setBPM(0);
+			stop();
+		}
+  	}
+	
+	public void decreaseTenBPM() {
+        int bpm = model.getBPM();
+        model.setBPM(bpm - 10);
+		if (model.getBPM() <= 0)
+		{
+			model.setBPM(0);
+			stop();
+		}
   	}
   
  	public void setBPM(int bpm) {
